@@ -1,0 +1,24 @@
+{
+    "name": "kkyytt/simpleratelimiter",
+    "description": "A simple rate-limiter",
+    "type": "library",
+    "license": "MIT",
+    "version": "1.0.0",
+    "authors": [
+        {
+            "name": "kkyytt",
+            "email": "tsingyan.cc@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "SimpleRatelimiter\\": "src/"
+        }
+    },
+    "repositories": {
+        "packagist.org": {
+            "type": "composer",
+            "url": "https://packagist.org"
+        }
+    }
+}
