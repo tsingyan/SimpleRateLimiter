@@ -1,7 +1,9 @@
 <?php
 
-use Storage\StorageInterface;
-use Strategy\StrategyInterface;
+namespace SimpleRateLimiter;
+
+use SimpleRateLimiter\Storage\StorageInterface;
+use SimpleRateLimiter\Strategy\StrategyInterface;
 
 class RateLimiter implements RateLimiterInterface
 {

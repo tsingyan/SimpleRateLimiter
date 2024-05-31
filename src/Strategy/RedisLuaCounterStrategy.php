@@ -1,11 +1,11 @@
 <?php
 
-namespace Strategy;
+namespace SimpleRateLimiter\Strategy;
 
-use Storage\StorageInterface;
-use Storage\RedisStorage;
+use SimpleRateLimiter\Storage\StorageInterface;
+use SimpleRateLimiter\Storage\RedisStorage;
 
-class RedisLuaCountStrategy extends CountStrategy
+class RedisLuaCounterStrategy extends CounterStrategy
 {
     private string $_script;
 

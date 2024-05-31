@@ -1,7 +1,7 @@
 <?php
-namespace Storage;
+namespace SimpleRateLimiter\Storage;
 
-use Storage\StorageInterface;
+use SimpleRateLimiter\Storage\StorageInterface;
 use Redis;
 
 class RedisStorage implements StorageInterface

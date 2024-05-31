@@ -1,13 +1,12 @@
 <?php
 
-namespace Strategy;
+namespace SimpleRateLimiter\Strategy;
 
-use Storage\RedisStorage;
-use Storage\StorageInterface;
+use SimpleRateLimiter\Storage\RedisStorage;
+use SimpleRateLimiter\Storage\StorageInterface;
 
 class RedisLuaTokenBucketStrategy extends TokenBucketStrategy
 {
-
     private string $_script;
 
     public function __construct() {

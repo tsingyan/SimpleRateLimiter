@@ -1,10 +1,10 @@
 <?php
 
-namespace Strategy;
+namespace SimpleRateLimiter\Strategy;
 
-use Storage\StorageInterface;
+use SimpleRateLimiter\Storage\StorageInterface;
 
-class CountStrategy implements StrategyInterface
+class CounterStrategy implements StrategyInterface
 {
     public function isAllowed($key, StorageInterface $storage, $limit, $window) : bool
     {
@@ -21,6 +21,12 @@ class CountStrategy implements StrategyInterface
             $limitData["count"] = 0;
         }
 
+        $limitData["count"]++;
+        $limitData["start_time"] = $currentTime;
+        print_r([
+                "limitData" => $limitData,
+            ]
+        );
         if ($limitData["count"] <= $limit) {
             $storage->set($key, $limitData, $window);
             return true;

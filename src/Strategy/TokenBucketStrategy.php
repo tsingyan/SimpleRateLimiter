@@ -1,8 +1,8 @@
 <?php
 
-namespace Strategy;
+namespace SimpleRateLimiter\Strategy;
 
-use Storage\StorageInterface;
+use SimpleRateLimiter\Storage\StorageInterface;
 
 class TokenBucketStrategy implements StrategyInterface
 {

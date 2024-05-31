@@ -1,10 +1,9 @@
 <?php
 
-namespace Storage;
+namespace SimpleRateLimiter\Storage;
 
 class FileStorage implements StorageInterface
 {
-
     private string $_directory;
 
     public function __construct(string $directory)
