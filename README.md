@@ -85,5 +85,26 @@ if ($ret) {
 RedisStorage & RedisLuaTokenBucketStrategy
 
 ```
+use SimpleRateLimiter\RateLimiter;
+use SimpleRateLimiter\Storage\RedisStorage;
+use SimpleRateLimiter\Strategy\RedisLuaTokenBucketStrategy;
 
+$redis = new redis();
+$redis->connect("172.17.0.5", 6379);
+$fileStorage = new RedisStorage($redis);
+$redisLuaTokenBucketStrategy = new RedisLuaTokenBucketStrategy();
+$rateLimiter = new RateLimiter($fileStorage, $redisLuaTokenBucketStrategy);
+
+$key = "rate_limit_strategy-userid111";
+$limit = 20; // cap
+$window = 5; //rate
+
+$ret = $rateLimiter->isAllow($key, $limit, $window);
+if ($ret) {
+    echo "Request allowed\n";
+} else {
+    echo "Request blocked\n";
+}
 ```
+
+
