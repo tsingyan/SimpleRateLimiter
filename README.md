@@ -7,10 +7,8 @@ A rate limiter library for PHP, supporting multiple strategies and storage backe
 Install via Composer:
 
 ```sh
-composer require yourname/ratelimiter
+composer require kkyytt/simpleratelimiter:dev-main
 ```
-
-## 项目结构
 
 ## Usage
 
@@ -106,5 +104,3 @@ if ($ret) {
     echo "Request blocked\n";
 }
 ```
-
-
