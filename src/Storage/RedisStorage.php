@@ -1,7 +1,7 @@
 <?php
+
 namespace SimpleRateLimiter\Storage;
 
-use SimpleRateLimiter\Storage\StorageInterface;
 use Redis;
 
 class RedisStorage implements StorageInterface
@@ -34,7 +34,8 @@ class RedisStorage implements StorageInterface
         $this->_client->del($key);
     }
 
-    public function eval($script, $keys = [], $args = []) {
+    public function eval($script, $keys = [], $args = [])
+    {
         return $this->_client->eval($script, array_merge($keys, $args), count($keys));
     }
 }

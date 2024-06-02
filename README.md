@@ -15,6 +15,11 @@ composer require kkyytt/simpleratelimiter:dev-main
 FileStorage & CounterStrategy
 
 ```
+ini_set('error_reporting', E_ALL);
+ini_set('display_errors', 1);
+
+require 'vendor/autoload.php';
+
 use SimpleRateLimiter\RateLimiter;
 use SimpleRateLimiter\Storage\FileStorage;
 use SimpleRateLimiter\Strategy\CounterStrategy;
@@ -37,6 +42,11 @@ if ($rateLimiter->isAllow($key, $limit, $window)) {
 RedisStorage & RedisLuaCounterStrategy
 
 ```
+ini_set('error_reporting', E_ALL);
+ini_set('display_errors', 1);
+
+require 'vendor/autoload.php';
+
 use SimpleRateLimiter\RateLimiter;
 use SimpleRateLimiter\Storage\RedisStorage;
 use SimpleRateLimiter\Strategy\RedisLuaCounterStrategy;
@@ -61,6 +71,11 @@ if ($ret) {
 FileStorage & TokenBucketStrategy
 
 ```
+ini_set('error_reporting', E_ALL);
+ini_set('display_errors', 1);
+
+require 'vendor/autoload.php';
+
 use SimpleRateLimiter\RateLimiter;
 use SimpleRateLimiter\Storage\FileStorage;
 use SimpleRateLimiter\Strategy\TokenBucketStrategy;
@@ -83,6 +98,11 @@ if ($ret) {
 RedisStorage & RedisLuaTokenBucketStrategy
 
 ```
+ini_set('error_reporting', E_ALL);
+ini_set('display_errors', 1);
+
+require 'vendor/autoload.php';
+
 use SimpleRateLimiter\RateLimiter;
 use SimpleRateLimiter\Storage\RedisStorage;
 use SimpleRateLimiter\Strategy\RedisLuaTokenBucketStrategy;

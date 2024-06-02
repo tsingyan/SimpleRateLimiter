@@ -10,13 +10,8 @@ class FileStorage implements StorageInterface
     {
         $this->_directory = $directory;
         if (!is_dir($this->_directory)) {
-            mkdir($this->_directory,0777, true);
+            mkdir($this->_directory, 0777, true);
         }
-    }
-
-    private function _getFilePath($key) : string
-    {
-        return $this->_directory . DIRECTORY_SEPARATOR . md5($key) . ".json";
     }
 
     public function get($key)
@@ -28,7 +23,12 @@ class FileStorage implements StorageInterface
         return json_decode(file_get_contents($filePath), true);
     }
 
-    public function set($key, $value, $ttl = null) :bool
+    private function _getFilePath($key): string
+    {
+        return $this->_directory . DIRECTORY_SEPARATOR . md5($key) . ".json";
+    }
+
+    public function set($key, $value, $ttl = null): bool
     {
         $filePath = $this->_getFilePath($key);
         if (!file_exists($filePath)) {
@@ -52,7 +52,7 @@ class FileStorage implements StorageInterface
 
     }
 
-    public function delete($key) : bool
+    public function delete($key): bool
     {
         $filePath = $this->_getFilePath($key);
         if (file_exists($filePath)) {

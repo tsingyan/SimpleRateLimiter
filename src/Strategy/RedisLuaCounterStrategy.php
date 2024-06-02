@@ -2,8 +2,8 @@
 
 namespace SimpleRateLimiter\Strategy;
 
-use SimpleRateLimiter\Storage\StorageInterface;
 use SimpleRateLimiter\Storage\RedisStorage;
+use SimpleRateLimiter\Storage\StorageInterface;
 
 class RedisLuaCounterStrategy extends CounterStrategy
 {
@@ -26,7 +26,7 @@ class RedisLuaCounterStrategy extends CounterStrategy
         LUA;
     }
 
-    public function isAllowed($key, StorageInterface $storage, $limit, $window) : bool
+    public function isAllowed($key, StorageInterface $storage, $limit, $window): bool
     {
         if (!($storage instanceof RedisStorage)) {
             throw new \InvalidArgumentException("RedisStorage is required for RedisLuaStrategy");

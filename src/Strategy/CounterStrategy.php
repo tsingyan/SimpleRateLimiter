@@ -6,7 +6,7 @@ use SimpleRateLimiter\Storage\StorageInterface;
 
 class CounterStrategy implements StrategyInterface
 {
-    public function isAllowed($key, StorageInterface $storage, $limit, $window) : bool
+    public function isAllowed($key, StorageInterface $storage, $limit, $window): bool
     {
         $storeData = $storage->get($key);
         $currentTime = time();

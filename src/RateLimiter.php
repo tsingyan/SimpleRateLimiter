@@ -11,7 +11,7 @@ class RateLimiter implements RateLimiterInterface
 
     public StrategyInterface $strategy;
 
-    public function __construct(StorageInterface $storage, StrategyInterface $strategy )
+    public function __construct(StorageInterface $storage, StrategyInterface $strategy)
     {
         $this->storage = $storage;
         $this->strategy = $strategy;

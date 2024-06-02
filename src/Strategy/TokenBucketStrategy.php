@@ -6,7 +6,7 @@ use SimpleRateLimiter\Storage\StorageInterface;
 
 class TokenBucketStrategy implements StrategyInterface
 {
-    public function isAllowed($key, StorageInterface $storage, $limit, $window) : bool
+    public function isAllowed($key, StorageInterface $storage, $limit, $window): bool
     {
         $currentTime = microtime(true);
         $data = $storage->get($key);
@@ -24,7 +24,7 @@ class TokenBucketStrategy implements StrategyInterface
             $data["tokens"]--;
             $storage->set($key, $data);
             return true;
-        }  else {
+        } else {
             $storage->set($key, $data);
             return false;
         }

@@ -9,7 +9,8 @@ class RedisLuaTokenBucketStrategy extends TokenBucketStrategy
 {
     private string $_script;
 
-    public function __construct() {
+    public function __construct()
+    {
         $this->_script = <<<LUA
             local key = KEYS[1]  
             local limit = tonumber(ARGV[1])  
@@ -50,13 +51,13 @@ class RedisLuaTokenBucketStrategy extends TokenBucketStrategy
      * @param int $window Bucket rate
      * @return bool
      */
-    public function isAllowed($key, StorageInterface $storage, $limit, $window) : bool
+    public function isAllowed($key, StorageInterface $storage, $limit, $window): bool
     {
         if (!($storage instanceof RedisStorage)) {
             throw new \InvalidArgumentException("RedisStorage is required for RedisLuaStrategy");
         }
 
-        $currentTime = microtime(true) ;
+        $currentTime = microtime(true);
         $result = $storage->eval($this->_script, [$key], [$limit, $window, $currentTime]);
         return ($result >= 0);
     }
