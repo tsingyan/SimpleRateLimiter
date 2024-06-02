@@ -58,15 +58,15 @@ if ($ret) {
 }
 ```
 
-FileStorage & CounterStrategy
+FileStorage & TokenBucketStrategy
 
 ```
 use SimpleRateLimiter\RateLimiter;
 use SimpleRateLimiter\Storage\FileStorage;
-use SimpleRateLimiter\Strategy\CounterStrategy;
+use SimpleRateLimiter\Strategy\TokenBucketStrategy;
 $fileStorage = new FileStorage('path/to/');
-$counterStrategy = new CounterStrategy();
-$rateLimiter = new RateLimiter($fileStorage, $counterStrategy);
+$tokenBucketStrategy = new TokenBucketStrategy();
+$rateLimiter = new RateLimiter($fileStorage, $tokenBucketStrategy);
 
 $key = 'user123';
 $limit = 20; // cap
